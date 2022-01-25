@@ -51,7 +51,7 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
     saveAccount({
        login: email,
        password: senha,
-       transactions: {}
+       transactions: []
     });
 
     myModal.hide();
@@ -65,9 +65,9 @@ function checkLogged() {
         logged = session;    
     }
 
-    if(!logged) {
-         window.location.href = index.html;
-         return;
+    if(logged) {
+        saveSession = (logged, session);
+        window.location.href = "home.html";
     }
 }
 

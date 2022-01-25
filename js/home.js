@@ -44,9 +44,8 @@ function checkLogged() {
         logged = session;    
     }
 
-    if(logged) {
+    if(!logged) {
         window.location.href = "index.html";
-        return;
     }
 
     const dataUser = localStorage.getItem(logged)
@@ -66,33 +65,33 @@ function logout() {
     window.location.href = "index.html";
 }
 
-function gatCashIn() {
+function getCashIn() {
     const transactions = data.transactions;
-    const gatCashIn = transactions.filter((item) => item.type === "1");
+    const getCashIn = transactions.filter((item) => item.type === "1");
 
-    if(gatCashIn.length) {
+    if(getCashIn.length) {
         let cashInHtml = ``;
         let limit = 0;
    
-        if(cahsIn.length > 5) {
+        if(getCahsIn.length > 5) {
             limit = 5;
         } else {
-           limit = cashIn.length;
+           limit = getCashIn.length;
          }
 
          for (let index = 0; index < limit; index++) {
             cashInHtml += `
             <div class="row mb-4">
             <div class="col-12">
-              <h3 class="fs-2">R$ ${cashIn[index].value.toFixed(2)}</h3>
+              <h3 class="fs-2">R$ ${getCashIn[index].value.toFixed(2)}</h3>
               <div class="container p-0">
                 <div class="row">
                   <div class="col-12 col-md-8">
-                    <p>${cashIn[index].description}</p>
+                    <p>${getCashIn[index].description}</p>
                   </div>
                 </div>
                 <div class="col-12 col-md-3 d-flex justfy-content-end">
-                  ${cashIn[index].date}
+                  ${getCashIn[index].date}
                 </div>
               </div>
             </div>
@@ -108,33 +107,33 @@ function gatCashIn() {
 
 }
 
-function gatCashOut() {
+function getCashOut() {
     const transactions = data.transactions;
-    const gatCashIn = transactions.filter((item) => item.type === "2");
+    const getCashIn = transactions.filter((item) => item.type === "2");
 
-    if(gatCashIn.length) {
+    if(getCashIn.length) {
         let cashInHtml = ``;
         let limit = 0;
    
-        if(cahsIn.length > 5) {
+        if(getCahsIn.length > 5) {
             limit = 5;
         } else {
-           limit = cashIn.length;
+           limit = getCashIn.length;
          }
 
          for (let index = 0; index < limit; index++) {
             cashInHtml += `
             <div class="row mb-4">
             <div class="col-12">
-              <h3 class="fs-2">R$ ${cashIn[index].value.toFixed(2)}</h3>
+              <h3 class="fs-2">R$ ${getCashIn[index].value.toFixed(2)}</h3>
               <div class="container p-0">
                 <div class="row">
                   <div class="col-12 col-md-8">
-                    <p>${cashIn[index].description}</p>
+                    <p>${getCashIn[index].description}</p>
                   </div>
                 </div>
                 <div class="col-12 col-md-3 d-flex justfy-content-end">
-                  ${cashIn[index].date}
+                  ${getCashIn[index].date}
                 </div>
               </div>
             </div>
@@ -152,7 +151,7 @@ function gatCashOut() {
 
 function getTotal() {
     const transactions = data.transactions;
-    let Total = 0;
+    let total = 0;
     
     transactions.forEach((item) => {
         if(item.type === "1") {
